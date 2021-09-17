@@ -1,0 +1,15 @@
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\bin\Debug\OnlineStoreWPF.exe.config
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\bin\Debug\OnlineStoreWPF.exe
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\bin\Debug\OnlineStoreWPF.pdb
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\MainWindow.g.cs
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\App.g.cs
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF_MarkupCompile.cache
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF_MarkupCompile.lref
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\MainWindow.baml
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.g.resources
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.Properties.Resources.resources
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.csproj.GenerateResource.cache
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.exe
+C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\obj\Debug\OnlineStoreWPF.pdb
