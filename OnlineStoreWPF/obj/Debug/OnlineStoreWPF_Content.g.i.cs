@@ -8,12 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/bread.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/cola.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/lays.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/pepsi.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/potato.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/snickers.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/vape.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/edit.png")]
 
 

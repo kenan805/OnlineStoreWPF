@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStoreWPF
 {
-    public class Product
+    public class Product: INotifyPropertyChanged
     {
         private string name;
         public string Name
@@ -17,6 +17,7 @@ namespace OnlineStoreWPF
             set
             {
                 name = value;
+                OnPropertyRaised();
             }
         }
         private double price;
@@ -26,15 +27,27 @@ namespace OnlineStoreWPF
             set
             {
                 price = value;
+                OnPropertyRaised();
             }
         }
         private string imagePath;
+
+
         public string ImagePath
         {
             get { return imagePath; }
             set
             {
                 imagePath = value;
+                OnPropertyRaised();
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyRaised([CallerMemberName] string propertyname = null)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
 

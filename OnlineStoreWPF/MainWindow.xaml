@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnlineStoreWPF" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="425" Width="749" MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" Background="{x:Null}" ResizeMode="CanResizeWithGrip" WindowStyle="None" Icon="Images\online_store_96px.png">
+        Title="MainWindow" WindowStartupLocation="CenterScreen" Height="426" MinHeight="326" Width="749" MinWidth="580" Background="{x:Null}" Icon="Images\online_store_96px.png"
+        AllowsTransparency="True"
+        WindowStyle="None">
 
     <Grid>
         <Border CornerRadius="20" Background="#F1F1F1">
@@ -15,7 +17,7 @@
                     <ColumnDefinition Width="12*"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Background="#FED24E" CornerRadius="20 0 0 20">
+                <Border CornerRadius="20 0 0 20" Background="#FED24E">
                     <Grid>
                         <Grid.Resources>
                             <Style x:Key="imageStyle1" TargetType="Image">
@@ -23,10 +25,11 @@
                                 <Setter Property="ToolTipService.ShowDuration" Value="5000"></Setter>
                             </Style>
                         </Grid.Resources>
-                        <Image Margin="5" VerticalAlignment="Top" Source="Images\online_store_96px.png" Width="40" ToolTip="Online store" Style="{StaticResource imageStyle1}"></Image>
-                        <Image Margin="10" VerticalAlignment="Bottom" Source="Images\shutdown_50px.png" Width="25" ToolTip="Exit" MouseLeftButtonDown="Image_Exit_MouseLeftButtonDown" Style="{StaticResource imageStyle1}"></Image>
+                        <Image Margin="5" VerticalAlignment="Top" Source="Images\online_store_96px.png" Width="40" ToolTip="Online store" Style="{StaticResource imageStyle1}"/>
+                        <Image Margin="10" VerticalAlignment="Bottom" Source="Images\shutdown_50px.png" Width="25" ToolTip="Exit" MouseLeftButtonDown="Image_Exit_MouseLeftButtonDown" Style="{StaticResource imageStyle1}"/>
+                        <Image Margin="0 60 5 0" VerticalAlignment="Top" Source="Images\add_shopping_cart_50px.png" Width="40" ToolTip="Add product" MouseLeftButtonDown="Image_Add_MouseLeftButtonDown" Style="{StaticResource imageStyle1}"/>
                         <ToggleButton BorderThickness="0" Click="ToggleButton_Click" Margin="0 0 0 60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Background="Transparent">
-                            <Image x:Name="imgScreen" Source="Images\toggle_full_screen_50px.png" Width="25" ToolTip="Full screen"></Image>
+                            <Image x:Name="imgScreen" Source="Images\toggle_full_screen_50px.png" Width="25" ToolTip="Full screen"/>
                         </ToggleButton>
                     </Grid>
                 </Border>
@@ -36,18 +39,18 @@
                         <RowDefinition/>
                         <RowDefinition Height="9*"/>
                     </Grid.RowDefinitions>
-                    <Grid>
+                    <Grid MouseLeftButtonDown="Window_MouseLeftButtonDown">
                         <Label Margin="10 0 0 0" VerticalAlignment="Center" FontSize="20" Content="Online Store" FontFamily="Consolas"/>
                         <Border x:Name="brdSearch" Width="200" HorizontalAlignment="Right" Padding="3" Background="White" CornerRadius="25" Margin="0 5 15 5">
                             <Grid>
                                 <Image Width="17" Height="17" Margin="5 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Source="Images\search_32px.png"></Image>
-                                <TextBox x:Name="txbSearch" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus" VerticalContentAlignment="Center" Background="Transparent" FontWeight="SemiBold" Foreground="Silver" BorderThickness="0" Padding="30 0 0 0">Search</TextBox>
+                                <TextBox TextChanged="TxbSearch_TextChanged" x:Name="txbSearch" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus" VerticalContentAlignment="Center" Background="Transparent" FontWeight="SemiBold" Foreground="Silver" BorderThickness="0" Padding="30 0 0 0">Search</TextBox>
                             </Grid>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <ListBox x:Name="lbProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray">
+                        <ListBox Grid.IsSharedSizeScope="True" MouseDoubleClick="LbProduct_MouseDoubleClick" x:Name="lbProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15,15,15.2,15.4" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray" Grid.RowSpan="2">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Horizontal"/>
@@ -63,31 +66,42 @@
                                         </Grid.RowDefinitions>
 
                                         <Grid>
-                                            <Border Height="120" Width="120" BorderThickness="2" CornerRadius="10" BorderBrush="#FED24E">
-                                                <Image Margin="5" Source="{Binding ImagePath}"></Image>
+                                            <Border x:Name="brd" Width="120" Height="120" BorderThickness="2" CornerRadius="10" BorderBrush="#FED24E">
+                                                <Border.Background>
+                                                    <LinearGradientBrush>
+                                                        <GradientStop Color="#F4E04D"/>
+                                                        <GradientStop Color="#F2ED6F" Offset="0.1"/>
+                                                        <GradientStop Color="#CEE397" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Border.Background>
+                                                <Image x:Name="imgProduct" Margin="5" Source="{Binding ImagePath, UpdateSourceTrigger=PropertyChanged}"></Image>
                                             </Border>
                                         </Grid>
 
-                                        <Grid Margin="5 0 5 0" Grid.Row="1">
+                                        <Grid Grid.Row="1">
 
-                                            <Border Height="30" Width="120" BorderThickness="0 0 0 2" CornerRadius="0 0 10 10" BorderBrush="Green">
+                                            <Border Height="30" Width="120" BorderThickness="0 0 0 2" CornerRadius="0 0 10 10">
+                                                <Border.BorderBrush>
+                                                    <LinearGradientBrush>
+                                                        <GradientStop Color="Green" Offset="0"/>
+                                                        <GradientStop Color="#F6AE2D" Offset="0.8"/>
+                                                    </LinearGradientBrush>
+                                                </Border.BorderBrush>
                                                 <Grid>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="3*"/>
-                                                        <ColumnDefinition Width="2*"/>
-                                                        <ColumnDefinition Width="2*"/>
+                                                        <ColumnDefinition Width="1.6*"/>
+                                                        <ColumnDefinition Width="1.5*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name}"></Label>
-                                                    <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price}"></Label>
-                                                    <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="AZN"></Label>
+                                                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></Label>
+                                                    <Label Grid.Column="1" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price, UpdateSourceTrigger=PropertyChanged}"></Label>
+                                                    <Label Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Right" Content="AZN"></Label>
                                                 </Grid>
                                             </Border>
                                         </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
-
-
                         </ListBox>
                     </Grid>
                 </Grid>
