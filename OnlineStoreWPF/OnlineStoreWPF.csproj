@@ -73,7 +73,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="ProductEditWindow.xaml.cs">
       <DependentUpon>ProductEditWindow.xaml</DependentUpon>
     </Compile>
