@@ -26,10 +26,46 @@ namespace OnlineStoreWPF
         {
             InitializeComponent();
             DataContext = this;
-            
+
 
             Products = new List<Product>
             {
+                new Product()
+                {
+                    Name = "Bread",
+                    Price = 0.70,
+                    ImagePath = "Images/Bread.png",
+                },
+                new Product()
+                {
+                    Name = "Cola",
+                    Price = 1.5,
+                    ImagePath = "Images/Cola.png",
+                },
+                new Product()
+                {
+                    Name = "Lays",
+                    Price = 1.8,
+                    ImagePath = "Images/Lays.png",
+                },
+                new Product()
+                {
+                    Name = "Pepsi",
+                    Price = 1.4,
+                    ImagePath = "Images/Pepsi.png",
+                },
+                new Product()
+                {
+                    Name = "Potato",
+                    Price = 0.6,
+                    ImagePath = "Images/Potato.png",
+                },
+                new Product()
+                {
+                    Name = "Snickers",
+                    Price = 2.4,
+                    ImagePath = "Images/Snickers.png",
+                },
                 new Product()
                 {
                     Name = "Bread",
@@ -83,12 +119,18 @@ namespace OnlineStoreWPF
             {
                 if (tgbtn.IsChecked == true)
                 {
+                    brdSearch.Width = 300;
+                    brdSearch.Margin = new Thickness(0, 20, 40, 20);
+                    txbSearch.FontSize = 16;
                     WindowState = WindowState.Maximized;
                     imgScreen.Source = new BitmapImage(new Uri(@"C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\Images\shrink_50px.png"));
                     imgScreen.ToolTip = "Shrink screen";
                 }
                 else
                 {
+                    brdSearch.Width = 200;
+                    brdSearch.Margin = new Thickness(0, 5, 15, 5);
+                    txbSearch.FontSize = 12;
                     WindowState = WindowState.Normal;
                     imgScreen.Source = new BitmapImage(new Uri(@"C:\Users\user\source\repos\OnlineStoreWPF\OnlineStoreWPF\Images\toggle_full_screen_50px.png"));
                     imgScreen.ToolTip = "Full screen";

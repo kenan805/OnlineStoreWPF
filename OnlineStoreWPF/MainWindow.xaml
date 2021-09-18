@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnlineStoreWPF" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="670" MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" Background="{x:Null}" ResizeMode="CanResizeWithGrip" WindowStyle="None" Icon="Images\online_store_96px.png">
+        Title="MainWindow" Height="425" Width="749" MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" Background="{x:Null}" ResizeMode="CanResizeWithGrip" WindowStyle="None" Icon="Images\online_store_96px.png">
 
     <Grid>
         <Border CornerRadius="20" Background="#F1F1F1">
@@ -38,16 +38,16 @@
                     </Grid.RowDefinitions>
                     <Grid>
                         <Label Margin="10 0 0 0" VerticalAlignment="Center" FontSize="20" Content="Online Store" FontFamily="Consolas"/>
-                        <Border Padding="3" Background="White" CornerRadius="0 20 0 0"  Margin="430 10 10 10">
+                        <Border x:Name="brdSearch" Width="200" HorizontalAlignment="Right" Padding="3" Background="White" CornerRadius="25" Margin="0 5 15 5">
                             <Grid>
                                 <Image Width="17" Height="17" Margin="5 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Source="Images\search_32px.png"></Image>
-                                <TextBox x:Name="txbSearch" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus" VerticalContentAlignment="Center" Background="Transparent" FontWeight="SemiBold" Foreground="Silver" BorderThickness="0" Padding="25 0 0 0">Search</TextBox>
+                                <TextBox x:Name="txbSearch" GotFocus="TextBoxSearch_GotFocus" LostFocus="TextBoxSearch_LostFocus" VerticalContentAlignment="Center" Background="Transparent" FontWeight="SemiBold" Foreground="Silver" BorderThickness="0" Padding="30 0 0 0">Search</TextBox>
                             </Grid>
                         </Border>
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray">
+                        <ListBox x:Name="lbProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Horizontal"/>
@@ -56,32 +56,38 @@
 
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <Grid>
+                                    <Grid Margin="10">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="5*"/>
-                                            <RowDefinition Height="2*"/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
                                         </Grid.RowDefinitions>
 
-                                        <Grid Grid.Row="0">
-                                            <Border Height="100" Width="100" BorderThickness="1" BorderBrush="#FED24E">
-                                                <Image Source="{Binding ImagePath}"></Image>
+                                        <Grid>
+                                            <Border Height="120" Width="120" BorderThickness="2" CornerRadius="10" BorderBrush="#FED24E">
+                                                <Image Margin="5" Source="{Binding ImagePath}"></Image>
                                             </Border>
                                         </Grid>
 
-                                        <Grid Grid.Row="1">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="7*"/>
-                                                <ColumnDefinition Width="3*"/>
-                                                <ColumnDefinition Width="2*"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{Binding Name}"></Label>
-                                            <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price}"></Label>
-                                            <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Content="AZN"></Label>
+                                        <Grid Margin="5 0 5 0" Grid.Row="1">
+
+                                            <Border Height="30" Width="120" BorderThickness="0 0 0 2" CornerRadius="0 0 10 10" BorderBrush="Green">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="3*"/>
+                                                        <ColumnDefinition Width="2*"/>
+                                                        <ColumnDefinition Width="2*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name}"></Label>
+                                                    <Label Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price}"></Label>
+                                                    <Label Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Content="AZN"></Label>
+                                                </Grid>
+                                            </Border>
                                         </Grid>
                                     </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
-                            
+
+
                         </ListBox>
                     </Grid>
                 </Grid>
