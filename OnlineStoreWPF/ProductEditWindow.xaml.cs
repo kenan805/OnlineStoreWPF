@@ -61,8 +61,8 @@ namespace OnlineStoreWPF
             }
             else
             {
-                ((MainWindow)Application.Current.MainWindow).Products.Remove(Product);
                 ((MainWindow)Application.Current.MainWindow).TempProducts.Remove(Product);
+                ((MainWindow)Application.Current.MainWindow).Products.Remove(Product);
                 Close();
             }
         }

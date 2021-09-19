@@ -27,8 +27,6 @@ namespace OnlineStoreWPF
     {
         public ObservableCollection<Product> Products { get; set; }
         public ObservableCollection<Product> TempProducts { get; set; }
-        public Product SelectedProduct { get; set; }
-        public bool isEditWindow = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -152,10 +150,10 @@ namespace OnlineStoreWPF
             {
                 var searchText = txbSearch.Text.ToLower();
                 List<Product> productsList = new List<Product>();
-                productsList = Products.Where(p => p.Name.ToLower().StartsWith(searchText)).ToList();
+                productsList = TempProducts.Where(p => p.Name.ToLower().StartsWith(searchText)).ToList();
                 ObservableCollection<Product> newList = new ObservableCollection<Product>(productsList);
-                lbProduct.ItemsSource = newList;
                 Products = newList;
+                lbProduct.ItemsSource = newList;
 
             }
             else if (txbSearch.Text.Length == 0)
