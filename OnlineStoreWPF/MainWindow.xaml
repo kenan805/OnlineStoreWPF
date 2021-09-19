@@ -50,7 +50,7 @@
                     </Grid>
 
                     <Grid Grid.Row="1">
-                        <ListBox Grid.IsSharedSizeScope="True" MouseDoubleClick="LbProduct_MouseDoubleClick" x:Name="lbProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15,15,15.2,15.4" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray" Grid.RowSpan="2">
+                        <ListBox Grid.IsSharedSizeScope="True" MouseDoubleClick="LbProduct_MouseDoubleClick" x:Name="lbProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Products}" Margin="15" Background="Transparent" BorderThickness="1" BorderBrush="DarkGray" Grid.RowSpan="2">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Horizontal"/>
@@ -93,8 +93,8 @@
                                                         <ColumnDefinition Width="1.6*"/>
                                                         <ColumnDefinition Width="1.5*"/>
                                                     </Grid.ColumnDefinitions>
-                                                    <Label Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></Label>
-                                                    <Label Grid.Column="1" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price, UpdateSourceTrigger=PropertyChanged}"></Label>
+                                                    <TextBlock TextWrapping="Wrap" Padding="5 0 0 0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                                                    <Label  Grid.Column="1" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding Price, UpdateSourceTrigger=PropertyChanged}"></Label>
                                                     <Label Grid.Column="2" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Right" Content="AZN"></Label>
                                                 </Grid>
                                             </Border>
